@@ -9,7 +9,7 @@ import androidx.room.Update;
 import com.example.tablet_lending_management.Models.Loan;
 
 import java.util.List;
-
+// Contains the Data Access Objects used to insert data into the
 @Dao
 public interface LoanDao {
     @Insert

@@ -117,7 +117,7 @@ public class AdminDashboard extends AppCompatActivity {
             }
         });
     }
-
+// Changes the Values of the spinner so that the values correlate with the filter type
     private void UpdateFilterValuesSpinner(String option)
     {
         switch (option)
@@ -144,7 +144,7 @@ public class AdminDashboard extends AppCompatActivity {
         }
     }
 
-
+// Filters the data that's contained inside of the data adapter based on the filters
     private void filterlist(List<LoanWithDetails>  listofLoans)
     {
 
