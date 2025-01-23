@@ -1,5 +1,6 @@
 package com.example.tablet_lending_management.DAL;
 
+import androidx.room.Dao;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
@@ -7,6 +8,7 @@ import com.example.tablet_lending_management.Models.LoanWithDetails;
 
 import java.util.List;
 
+@Dao
 public interface LoanDetailsDao {
     @Transaction
     @Query("SELECT * FROM Loan")

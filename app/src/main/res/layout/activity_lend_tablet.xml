@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LendTablet"
+    android:orientation="vertical"
+    android:padding="16sp"
+    >
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lend a Tablet"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- User Selection Spinner -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select User"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinner_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tablet Selection Spinner -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Tablet"
+        android:layout_marginBottom="8dp" />
+
+    <Spinner
+        android:id="@+id/spinner_tablets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Include Cable Checkbox -->
+    <CheckBox
+        android:id="@+id/checkbox_include_cable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include Cable"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Lend Tablet Button -->
+    <Button
+        android:id="@+id/button_lend_tablet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lend Tablet"
+        android:textSize="18sp"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
