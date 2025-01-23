@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tablet_lending_management.DAL.LoanDao;
 import com.example.tablet_lending_management.DAL.LoanDetailsDao;
 import com.example.tablet_lending_management.Models.AppDatabase;
 import com.example.tablet_lending_management.Models.CableTypes;
+import com.example.tablet_lending_management.Models.Loan;
 import com.example.tablet_lending_management.Models.LoanWithDetails;
 import com.example.tablet_lending_management.Models.TabletBrands;
 import com.example.tablet_lending_management.utils.LoanDetailsAdapter;
@@ -57,7 +59,7 @@ public class AdminDashboard extends AppCompatActivity {
             return insets;
         });
 
-        loanDetailsAdapter = new LoanDetailsAdapter(new ArrayList<>());
+        loanDetailsAdapter = new LoanDetailsAdapter(new ArrayList<>(),this::markLoanAsBeenCompleted);
 
         db = AppDatabase.getInstance(this);
         executorService = Executors.newSingleThreadExecutor();
@@ -200,4 +202,35 @@ public class AdminDashboard extends AppCompatActivity {
 
         loanDetailsAdapter.setLoanWithDetailsList(filtered);
     }
+
+
+private void markLoanAsBeenCompleted(Loan loan){
+
+        try
+        {
+            executorService.submit(() -> {
+                LoanDao loanDao = db.loanDao();
+
+                loanDao.deleteLoan(loan);
+
+            });
+
+            fetchLoanDetailsFromDatabase();
+            filterlist(loanDetailsList);
+
+        }
+        catch (Exception ex)
+        {
+
+            AlertDialogHelper.showDialog(this,
+                    "Error Occurred",
+                    ex.getMessage(),
+                    "Retry",
+                    "Menu",
+                    null,
+                    null
+            );
+        }
+}
+
 }

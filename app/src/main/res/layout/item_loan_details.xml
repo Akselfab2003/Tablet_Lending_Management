@@ -47,5 +47,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Time of Loan" />
+    
+    <Button
+        android:id="@+id/markAsComplete"
+        android:layout_width="wrap_content"
+        android:text="Complete"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>

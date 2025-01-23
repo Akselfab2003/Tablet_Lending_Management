@@ -4,22 +4,27 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tablet_lending_management.Models.Loan;
 import com.example.tablet_lending_management.Models.LoanWithDetails;
 import com.example.tablet_lending_management.R;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class LoanDetailsAdapter extends RecyclerView.Adapter<LoanDetailsAdapter.LoanWithDetailsViewHolder> {
 
     private List<LoanWithDetails> loanDetailsList;
+    private Consumer<Loan> markAsBeenCompleted;
 
-    public LoanDetailsAdapter(List<LoanWithDetails> LoanWithDetailsList) {
+    public LoanDetailsAdapter(List<LoanWithDetails> LoanWithDetailsList,Consumer<Loan> MarkAsBeenCompleted) {
         this.loanDetailsList = LoanWithDetailsList;
+        this.markAsBeenCompleted = MarkAsBeenCompleted;
     }
 
     @NonNull
@@ -39,6 +44,11 @@ public class LoanDetailsAdapter extends RecyclerView.Adapter<LoanDetailsAdapter.
         holder.textViewCableType.setText("Cable Type: " + LoanWithDetails.tablet.getCableType());
         holder.textViewCableIncluded.setText("Cable Included: " + (LoanWithDetails.loan.isCableIncluded() ? "Yes" : "No"));
         holder.textViewTimeOfLoan.setText("Time of Loan: " + LoanWithDetails.loan.getTimeOfLoan().toString());
+
+        holder.markAsComplete.setOnClickListener(v -> {
+            markAsBeenCompleted.accept(LoanWithDetails.loan);
+        });
+
     }
 
     @Override
@@ -54,6 +64,7 @@ public class LoanDetailsAdapter extends RecyclerView.Adapter<LoanDetailsAdapter.
         TextView textViewCableType;
         TextView textViewCableIncluded;
         TextView textViewTimeOfLoan;
+        Button   markAsComplete;
 
         LoanWithDetailsViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +75,7 @@ public class LoanDetailsAdapter extends RecyclerView.Adapter<LoanDetailsAdapter.
             textViewCableType = itemView.findViewById(R.id.textViewCableType);
             textViewCableIncluded = itemView.findViewById(R.id.textViewCableIncluded);
             textViewTimeOfLoan = itemView.findViewById(R.id.textViewTimeOfLoan);
+            markAsComplete = itemView.findViewById(R.id.markAsComplete);
         }
     }
 
