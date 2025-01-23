@@ -1,5 +1,6 @@
 package com.example.tablet_lending_management;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         LendTablet.setOnClickListener(v ->
         {
+            Intent intent = new Intent(MainActivity.this,com.example.tablet_lending_management.LendTablet.class);
 
+            startActivity(intent);
         });
 
         AdminView.setOnClickListener(v -> {

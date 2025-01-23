@@ -10,10 +10,8 @@ public class Tablet {
     @PrimaryKey
     private int tabletId;
 
-    @ColumnInfo(name = "TabletBrand")
     private TabletBrands tabletBrand;
 
-    @ColumnInfo(name = "CableType")
     private CableTypes cableType;
 
     public TabletBrands getTabletBrand() {
