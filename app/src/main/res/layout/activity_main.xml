@@ -17,17 +17,29 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textAlignment="center"
         android:textSize="32sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="50sp"
+        />
 
 
     <Button
+        android:id="@+id/btn_LendTablet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lend Tablet"
+        android:layout_margin="15sp"
         android:textSize="32sp"
         />
 
 
+    <Button
+        android:id="@+id/btn_AdminView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Admin View"
+        android:layout_margin="15sp"
+        android:textSize="32sp"
+        />
 
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.tablet_lending_management;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private Button LendTablet,AdminView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +24,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        LendTablet.setOnClickListener(v ->
+        {
+
+        });
+
+        AdminView.setOnClickListener(v -> {
+
+        });
+
     }
 }
