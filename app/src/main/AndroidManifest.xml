@@ -16,6 +16,12 @@
             android:name=".LendTablet"
             android:exported="false" />
         <activity
+            android:name=".CreateUser"
+            android:exported="false" />
+        <activity
+            android:name=".LendTabletOverview"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

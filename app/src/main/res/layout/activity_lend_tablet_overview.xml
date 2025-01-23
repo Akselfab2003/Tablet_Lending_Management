@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+
+    android:id="@+id/main"
+
+    tools:context=".LendTabletOverview"
+
+    >
+
+
+    <!-- Create User Button -->
+    <Button
+        android:id="@+id/btn_Lend_overview_create_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Create User"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Create Loan Button -->
+    <Button
+        android:id="@+id/btn_Lend_overview_create_loan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Create Loan"
+        android:enabled="false"
+    android:layout_marginBottom="16dp" />
+
+
+</LinearLayout>
