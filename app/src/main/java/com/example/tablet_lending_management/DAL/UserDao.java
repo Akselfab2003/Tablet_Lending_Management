@@ -27,6 +27,6 @@ public interface UserDao {
     @Query("SELECT * FROM User")
     List<User> getAllUsers();
 
-
-
+    @Query("SELECT * FROM user ORDER BY userId DESC LIMIT 1")
+    User getLastCreatedUser();
 }

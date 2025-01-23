@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Name" />
+
+    <TextView
+        android:id="@+id/textViewUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Email" />
+
+    <TextView
+        android:id="@+id/textViewUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Phone" />
+
+    <TextView
+        android:id="@+id/textViewTabletBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tablet Brand" />
+
+    <TextView
+        android:id="@+id/textViewCableType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cable Type" />
+
+    <TextView
+        android:id="@+id/textViewCableIncluded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cable Included" />
+
+    <TextView
+        android:id="@+id/textViewTimeOfLoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time of Loan" />
+</LinearLayout>

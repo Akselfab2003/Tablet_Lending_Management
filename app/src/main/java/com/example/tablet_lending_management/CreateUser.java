@@ -61,20 +61,20 @@ public class CreateUser extends AppCompatActivity {
             usr.setEmail(userEmail.getText().toString());
             usr.setPhoneNumber(userPhone.getText().toString());
 
-            UserDao userDB = db.userDao();
 
             executorService.execute(() -> {
+                UserDao userDB = db.userDao();
 
                 userDB.insertUser(usr);
 
-                runOnUiThread(() -> {finish();});
             });
+            finish();
 
         }
         catch (Exception ex)
         {
             AlertDialogHelper.showDialog(com.example.tablet_lending_management.CreateUser.this,
-                    "Error Occured",
+                    "Error Occurred",
                     ex.getMessage(),
                     "Retry",
                     "Menu",

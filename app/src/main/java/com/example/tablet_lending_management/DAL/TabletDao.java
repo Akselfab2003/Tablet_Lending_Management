@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface TabletDao {
     @Insert
-    long insertTablet(Tablet tablet);
+    void insertTablet(Tablet tablet);
 
     @Update
     void updateTablet(Tablet tablet);
@@ -26,5 +26,8 @@ public interface TabletDao {
 
     @Query("SELECT * FROM Tablet")
     List<Tablet> getAllTablets();
+
+    @Query("SELECT * FROM Tablet ORDER BY tabletId DESC LIMIT 1")
+    Tablet getLastCreatedTablet();
 
 }

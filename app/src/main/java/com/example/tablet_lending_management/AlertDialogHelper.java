@@ -3,6 +3,9 @@ package com.example.tablet_lending_management;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.LayoutInflater;
+
+import com.example.tablet_lending_management.Models.LoanWithDetails;
 
 public class AlertDialogHelper {
 
@@ -25,5 +28,9 @@ public class AlertDialogHelper {
         builder.create().show();
 
     }
+
+
+
+
 
 }

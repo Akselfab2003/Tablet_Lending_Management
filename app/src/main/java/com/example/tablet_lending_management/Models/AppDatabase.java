@@ -15,7 +15,7 @@ import com.example.tablet_lending_management.DAL.TabletDao;
 import com.example.tablet_lending_management.DAL.UserDao;
 
 
-@Database(entities = {Loan.class,Tablet.class,User.class},version = 1)
+@Database(entities = {Loan.class,Tablet.class,User.class},version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
