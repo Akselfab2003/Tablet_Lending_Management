@@ -25,6 +25,7 @@ import com.example.tablet_lending_management.Models.TabletBrands;
 import com.example.tablet_lending_management.utils.LoanDetailsAdapter;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -149,34 +150,48 @@ public class AdminDashboard extends AppCompatActivity {
 
 
         String option = FilterOptions.getSelectedItem().toString();
-        String Selectedvalue = FilterValueOptions.getSelectedItem().toString();
+        String Selectedvalue;
+
+        if(FilterValueOptions.getSelectedItem() != null)
+        {
+            Selectedvalue = FilterValueOptions.getSelectedItem().toString();
+        } else {
+            Selectedvalue = "";
+        }
+
         String Date = FilterByDate.getText().toString();
 
         List<LoanWithDetails> filtered = new ArrayList<LoanWithDetails>();
-
-        switch (option)
+        if(!option.isEmpty())
         {
-            case "Brands":
+            switch (option)
             {
-                if(!Selectedvalue.isEmpty()){
-                    filtered =  listofLoans.stream()
-                            .filter(item -> item.tablet.getTabletBrand().toString().equals(Selectedvalue)).collect(Collectors.toList());
+                case "Brands":
+                {
+                    if(!Selectedvalue.isEmpty()){
+                        filtered =  listofLoans.stream()
+                                .filter(item -> item.tablet.getTabletBrand().toString().equals(Selectedvalue)).collect(Collectors.toList());
+                    }
+                    break;
                 }
-                break;
-            }
-            case "CableType":
-            {
-                if(!Selectedvalue.isEmpty()){
-                    filtered = (List<LoanWithDetails>) listofLoans.stream()
-                            .filter(item -> item.tablet.getCableType().toString().equals(Selectedvalue)).collect(Collectors.toList());
+                case "CableType":
+                {
+                    if(!Selectedvalue.isEmpty()){
+                        filtered = listofLoans.stream()
+                                .filter(item -> item.tablet.getCableType().toString().equals(Selectedvalue)).collect(Collectors.toList());
+                    }
+                    break;
                 }
-                break;
+                case "None":
+                {
+                    filtered = listofLoans;
+                }
             }
-            case "None":
-            {
-                filtered = listofLoans;
-            }
+
         }
+
+
+
 
         if(!Date.isEmpty())
         {
