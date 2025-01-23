@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         AdminView.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this,CreateUser.class);
+            Intent intent = new Intent(MainActivity.this,AdminLogin.class);
 
             startActivity(intent);
         });

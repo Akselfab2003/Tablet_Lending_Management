@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Email Address"
+        android:inputType="textEmailAddress"
         android:layout_marginBottom="32dp" />
 
     <EditText
@@ -37,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Phone Number"
+        android:inputType="phone"
         android:layout_marginBottom="32dp" />
 
     <Button
@@ -45,6 +47,8 @@
         android:layout_height="wrap_content"
         android:text="Create User"
         android:layout_marginBottom="32dp" />
+
+
 
 
 </LinearLayout>

@@ -74,19 +74,14 @@ public class LendTablet extends AppCompatActivity {
         cableTypesArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCables.setAdapter(cableTypesArrayAdapter);
 
-
         buttonLendTablet.setOnClickListener(v-> {
             OnFormSubmit();
                 }
         );
-
     }
 
     private void OnFormSubmit(){
-
         try{
-
-
             TabletDao tabletDao = db.tabletDao();
 
             Tablet tbl = new Tablet();
@@ -97,10 +92,9 @@ public class LendTablet extends AppCompatActivity {
 
             executorService.submit(() -> {
                 tabletDao.insertTablet(tbl);
-            }).wait();
+            });
 
             Loan loan = new Loan();
-
 
             loan.setTimeOfLoan(LocalDateTime.now());
             loan.setCableIncluded(checkboxIncludeCable.isChecked());
@@ -119,12 +113,10 @@ public class LendTablet extends AppCompatActivity {
 
                 loanDao.insertLoan(loan);
 
-                showLoanDetailsDialog(loan,tbl,user);
-
-            }).wait();
-
-            finish();
-
+                runOnUiThread(()-> {
+                    showLoanDetailsDialog(loan,tbl,user);
+                });
+            });
         }
         catch (Exception ex){
             AlertDialogHelper.showDialog(this,
@@ -136,11 +128,7 @@ public class LendTablet extends AppCompatActivity {
                     null
             );
         }
-
-
     }
-
-
 
     private void showLoanDetailsDialog(Loan loan,Tablet tablet,User user) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -156,7 +144,6 @@ public class LendTablet extends AppCompatActivity {
         TextView textViewCableIncluded = dialogView.findViewById(R.id.textViewCableIncluded);
         TextView textViewTimeOfLoan = dialogView.findViewById(R.id.textViewTimeOfLoan);
 
-
         textViewUserName.setText("Name: " + user.getName());
         textViewUserEmail.setText("Email: " + user.getEmail());
         textViewUserPhone.setText("Phone: " +user.getPhoneNumber());
@@ -165,12 +152,11 @@ public class LendTablet extends AppCompatActivity {
         textViewCableIncluded.setText("Cable Included: " + (loan.isCableIncluded() ? "Yes" : "No"));
         textViewTimeOfLoan.setText("Time of Loan: " + loan.getTimeOfLoan().toString());
 
-        builder.setTitle("Loan Details")
-                .setPositiveButton("OK", (dialog, id) -> dialog.dismiss())
+        builder.setTitle("Loan Details");
+
+        builder.setPositiveButton("OK",(dialog,id) ->  finish());
+        builder
                 .create()
                 .show();
     }
-
-
-
 }

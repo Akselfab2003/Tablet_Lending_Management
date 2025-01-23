@@ -54,6 +54,7 @@ public class LendTabletOverview extends AppCompatActivity {
            CreateLoan.setOnClickListener(v -> {
                Intent lendTablet = new Intent(LendTabletOverview.this, LendTablet.class);
                startActivity(lendTablet);
+               finish();
            });
     }
 

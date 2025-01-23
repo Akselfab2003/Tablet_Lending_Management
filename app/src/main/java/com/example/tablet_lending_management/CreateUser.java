@@ -2,6 +2,7 @@ package com.example.tablet_lending_management;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -17,6 +18,7 @@ import com.example.tablet_lending_management.Models.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.regex.Pattern;
 
 public class CreateUser extends AppCompatActivity {
 
@@ -58,9 +60,17 @@ public class CreateUser extends AppCompatActivity {
 
             User usr = new User();
             usr.setName(userName.getText().toString());
-            usr.setEmail(userEmail.getText().toString());
-            usr.setPhoneNumber(userPhone.getText().toString());
 
+            if(!Patterns.EMAIL_ADDRESS.matcher(userEmail.getText()).matches())
+            {
+                throw new  InvalidEmailException("Invalid email");
+            }
+
+            usr.setEmail(userEmail.getText().toString());
+
+
+
+            usr.setPhoneNumber(userPhone.getText().toString());
 
             executorService.execute(() -> {
                 UserDao userDB = db.userDao();
@@ -86,4 +96,9 @@ public class CreateUser extends AppCompatActivity {
 
     }
 
+    public static class InvalidEmailException extends Exception {
+        public InvalidEmailException(String message) {
+            super(message);
+        }
+    }
 }
