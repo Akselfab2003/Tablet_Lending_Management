@@ -53,7 +53,7 @@ public class CreateUser extends AppCompatActivity {
        CreateUser.setOnClickListener(v -> OnFormSubmit());
 
     }
-
+// Creates the user when they have entered valid information
     private void OnFormSubmit()
     {
         try{

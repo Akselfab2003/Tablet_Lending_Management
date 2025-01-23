@@ -79,7 +79,7 @@ public class LendTablet extends AppCompatActivity {
                 }
         );
     }
-
+// Creates the Loan and tablet in the database
     private void OnFormSubmit(){
         try{
             TabletDao tabletDao = db.tabletDao();
@@ -129,7 +129,7 @@ public class LendTablet extends AppCompatActivity {
             );
         }
     }
-
+// Shows the Loan Request receipt
     private void showLoanDetailsDialog(Loan loan,Tablet tablet,User user) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();

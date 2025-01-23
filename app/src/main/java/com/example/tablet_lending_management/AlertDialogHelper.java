@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 
 import com.example.tablet_lending_management.Models.LoanWithDetails;
 
+// Dialog Template 
 public class AlertDialogHelper {
 
 
@@ -21,7 +22,6 @@ public class AlertDialogHelper {
                 .setPositiveButton(positiveButtonText, positiveButtonListener)
                 .setNegativeButton(negativeButtonText, negativeButtonListener);
 
-        // You can also add other properties like neutral button, custom layouts, etc.
         builder.setCancelable(false);
 
         // Show the dialog

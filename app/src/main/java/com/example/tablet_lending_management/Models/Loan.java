@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 import java.time.LocalDateTime;
 
-
+// Creates a Loan Table that contains foreign keys to the User and the Tablet tables
 
 @Entity(foreignKeys = {
     @ForeignKey(entity = User.class,parentColumns = "userId",childColumns = "userId",onDelete = ForeignKey.CASCADE),

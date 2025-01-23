@@ -57,7 +57,7 @@ public class LendTabletOverview extends AppCompatActivity {
                finish();
            });
     }
-
+// Enables the Create Loan button when the user has been created
     private void EnableLendTabletButton(){
         CreateUser.setEnabled(false);
         CreateLoan.setEnabled(true);
