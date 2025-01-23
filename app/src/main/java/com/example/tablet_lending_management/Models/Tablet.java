@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Tablet {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int tabletId;
 
     private TabletBrands tabletBrand;

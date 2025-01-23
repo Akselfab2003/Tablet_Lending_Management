@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface TabletDao {
     @Insert
-    void insertTablet(Tablet tablet);
+    long insertTablet(Tablet tablet);
 
     @Update
     void updateTablet(Tablet tablet);

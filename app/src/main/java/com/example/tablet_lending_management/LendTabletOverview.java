@@ -26,6 +26,7 @@ public class LendTabletOverview extends AppCompatActivity {
     private AppDatabase db;
     private ExecutorService executorService;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,8 @@ public class LendTabletOverview extends AppCompatActivity {
 
            CreateUser.setOnClickListener(v -> {
                Intent createUser = new Intent(this, CreateUser.class);
-               activityResultLauncher.launch(createUser);
+               startActivity(createUser);
+               EnableLendTabletButton();
            });
 
            CreateLoan.setOnClickListener(v -> {
@@ -54,59 +56,9 @@ public class LendTabletOverview extends AppCompatActivity {
            });
     }
 
-
-    private final ActivityResultLauncher<Intent> activityResultLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                if (result.getResultCode() == RESULT_OK) {
-                    Intent data = result.getData();
-                    if (data != null) {
-                        int userId = Integer.getInteger(data.getStringExtra("User_ID"));
-
-                        boolean userExists =  checkUserExists(userId);
-
-                        if(userExists){
-                            EnableLendTabletButton();
-                        }
-
-                    }
-            }
-    });
-
-
     private void EnableLendTabletButton(){
         CreateUser.setEnabled(false);
         CreateLoan.setEnabled(true);
-    }
-
-
-    private boolean checkUserExists(int userId){
-        try{
-
-
-            UserDao userDB = db.userDao();
-
-
-            User usr = userDB.getUserById(userId);
-
-            if(usr != null){
-                return true;
-            }
-
-            return false;
-
-        }
-        catch (Exception ex)
-        {
-            AlertDialogHelper.showDialog(this,
-                    "Error Occured",
-                    ex.getMessage(),
-                    "Retry",
-                    "Menu",
-                    null,
-                    null
-            );
-            return  false;
-        }
     }
 
 }

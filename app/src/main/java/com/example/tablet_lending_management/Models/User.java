@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User
 {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int userId;
     private String name;
     private String email;
