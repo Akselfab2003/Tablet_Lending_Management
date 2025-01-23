@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LendTablet"
     android:id="@+id/main"
+    android:layout_margin="10sp"
+
     android:padding="16dp">
 
     <LinearLayout

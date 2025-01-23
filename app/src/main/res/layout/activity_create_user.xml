@@ -7,6 +7,7 @@
     tools:context=".CreateUser"
     android:id="@+id/main"
     android:padding="16dp"
+    android:layout_margin="10sp"
     >
 
     <!-- Section: Create User -->

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".AdminLogin"
     android:orientation="vertical"
+    android:layout_margin="15sp"
     >
 
     <TextView
@@ -22,7 +23,7 @@
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16sp"/>
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24sp"/>
 
     <Button
         android:id="@+id/buttonLogin"
